@@ -17,14 +17,6 @@ const Hero = () => {
             consequuntur debitis, doloremque quasi. Est voluptas, distinctio
             ipsa explicabo labore suscipit dolorum eum ducimus?
           </p>
-          <div className="mt-6">
-            <Link
-              to="/"
-              className="px-3 py-2 border-blue-700 text-white rounded-md border-2"
-            >
-              More About
-            </Link>
-          </div>
         </div>
       </div>
     </div>

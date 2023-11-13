@@ -18,7 +18,7 @@ const Countries = () => {
   const [countriesData, setCountriesData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [isAll, setIsAll] = useState(false);
-
+  const [seeAll, setSeeAll] = useState(false);
   useEffect(() => {
     setLoading(true);
     fetch(`https://restcountries.com/v3.1/all`)
@@ -66,17 +66,40 @@ const Countries = () => {
               <Tab onClick={() => handleRegion("Americas")}>Americas</Tab>
             </TabList>
 
-            {panelItems.map((item) => (
-              <TabPanel key={item}>
+            {panelItems.map((item, index) => (
+              <TabPanel key={index}>
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  {countriesData?.length ? (
-                    countriesData.map((country, index) => (
-                      <CountryCard key={index} country={country} />
-                    ))
-                  ) : (
-                    <Spinner />
-                  )}
+                  {seeAll
+                    ? countriesData?.length > 0 &&
+                      countriesData.map((country, index) => (
+                        <CountryCard key={index} country={country} />
+                      ))
+                    : countriesData?.length > 0 &&
+                      countriesData
+                        .slice(0, 9)
+                        .map((country, index) => (
+                          <CountryCard key={index} country={country} />
+                        ))}
                 </div>
+                {seeAll ? (
+                  <div className="text-center mt-10">
+                    <button
+                      onClick={() => setSeeAll(false)}
+                      className="border-blue-600 border-2 rounded-md hover:bg-blue-500 hover:text-white py-3 px-5"
+                    >
+                      Less
+                    </button>
+                  </div>
+                ) : (
+                  <div className="text-center mt-10">
+                    <button
+                      onClick={() => setSeeAll(true)}
+                      className="border-blue-600 border-2 rounded-md hover:bg-blue-500 hover:text-white py-3 px-5"
+                    >
+                      Load more
+                    </button>
+                  </div>
+                )}
               </TabPanel>
             ))}
           </Tabs>

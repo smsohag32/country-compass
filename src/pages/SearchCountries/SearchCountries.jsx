@@ -6,7 +6,6 @@ const SearchCountries = () => {
   const [populatedCountriesData, setPopulatedCountriesData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchText, setSearchText] = useState("");
-  //   tabs
 
   //   load data
   useEffect(() => {
@@ -19,6 +18,7 @@ const SearchCountries = () => {
         setLoading(false);
       })
       .catch((err) => {
+        console.log(err);
         setLoading(false);
       });
   }, []);
@@ -41,15 +41,16 @@ const SearchCountries = () => {
             placeholder="Search country"
           />
         </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {filteredData?.length ? (
-            filteredData.map((country, index) => (
-              <CountryCard key={index} country={country} />
-            ))
-          ) : (
-            <Spinner />
-          )}
-        </div>
+        {loading ? (
+          <Spinner />
+        ) : (
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {filteredData?.length > 0 &&
+              filteredData.map((country, index) => (
+                <CountryCard key={index} country={country} />
+              ))}
+          </div>
+        )}
       </div>
     </div>
   );

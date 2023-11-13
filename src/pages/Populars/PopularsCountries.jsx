@@ -6,6 +6,7 @@ const PopularCountries = () => {
   const [populatedCountriesData, setPopulatedCountriesData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchText, setSearchText] = useState("");
+  const [seeAll, setSeeAll] = useState(false);
   //   tabs
 
   //   load data
@@ -19,6 +20,7 @@ const PopularCountries = () => {
         setLoading(false);
       })
       .catch((err) => {
+        console.log(err);
         setLoading(false);
       });
   }, []);
@@ -31,7 +33,7 @@ const PopularCountries = () => {
     <div className="py-24 min-h-screen">
       <div className="my-container">
         <h1 className="text-2xl md:text-4xl font-bold mb-8 text-center">
-          World most populated countries
+          World most Popular countries
         </h1>
         <div className="text-center mb-12">
           <input
@@ -41,15 +43,43 @@ const PopularCountries = () => {
             placeholder="Search country"
           />
         </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {filteredData?.length ? (
-            filteredData.map((country, index) => (
-              <CountryCard key={index} country={country} />
-            ))
-          ) : (
-            <Spinner />
-          )}
-        </div>
+        {loading ? (
+          <Spinner />
+        ) : (
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {seeAll
+              ? filteredData?.length > 0 &&
+                filteredData.map((country, index) => (
+                  <CountryCard key={index} country={country} />
+                ))
+              : filteredData?.length > 0 &&
+                filteredData
+                  .slice(0, 15)
+                  .map((country, index) => (
+                    <CountryCard key={index} country={country} />
+                  ))}
+          </div>
+        )}
+
+        {seeAll ? (
+          <div className="text-center mt-10">
+            <button
+              onClick={() => setSeeAll(false)}
+              className="border-blue-600 border-2 rounded-md hover:bg-blue-500 hover:text-white py-3 px-5"
+            >
+              Less
+            </button>
+          </div>
+        ) : (
+          <div className="text-center mt-10">
+            <button
+              onClick={() => setSeeAll(true)}
+              className="border-blue-600 border-2 rounded-md hover:bg-blue-500 hover:text-white py-3 px-5"
+            >
+              See all
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

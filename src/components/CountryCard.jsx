@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
 const CountryCard = ({ country }) => {
@@ -39,7 +38,7 @@ const CountryCard = ({ country }) => {
         </p>
       </div>
       <div className="mt-auto p-6 flex justify-end">
-        <Link className="primary-btn" to="/">
+        <Link className="primary-btn" to={`/country/${country?.name?.common}`}>
           Details
         </Link>
       </div>

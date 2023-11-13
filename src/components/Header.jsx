@@ -2,16 +2,15 @@ import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { Divide } from "hamburger-react";
 import { useContext, useState } from "react";
-import { SearchContext } from "../context/SearchProvider";
+// import { SearchContext } from "../context/SearchProvider";
 const Header = () => {
   const [isOpen, setOpen] = useState(false);
   const location = useLocation();
-  const { setSearchText, searchText } = useContext(SearchContext);
+  // const { setSearchText, searchText } = useContext(SearchContext);
   const navigate = useNavigate();
   // handle to search
 
   const handleSearch = (value) => {
-    console.log(searchText);
     if (!value) {
       return;
     }

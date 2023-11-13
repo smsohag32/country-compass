@@ -23,7 +23,7 @@ body, html {
 
 
 .my-container{
-  @apply max-w-7xl w-full px-8 md:px-0 mx-auto
+  @apply max-w-7xl w-full px-8 md:px-5 lg:px-0 mx-auto
 }
 
 .active-link{

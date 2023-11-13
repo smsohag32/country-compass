@@ -5,6 +5,7 @@ import PopularCountries from "../pages/Populars/PopularsCountries";
 import About from "../pages/About/About";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import SearchResult from "../pages/SearchResult/SearchResult";
+import CountryDetails from "../pages/CountryDetails/CountryDetails";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/search-result",
         element: <SearchResult />,
+      },
+      {
+        path: "/country/:countryName",
+        element: <CountryDetails />,
       },
     ],
   },
