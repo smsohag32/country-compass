@@ -1,3 +1,4 @@
+import AsianCountries from "./AsianCountries";
 import Countries from "./Countries";
 import Hero from "./Hero";
 
@@ -6,6 +7,7 @@ const Home = () => {
     <div>
       <Hero />
       <Countries />
+      <AsianCountries />
     </div>
   );
 };

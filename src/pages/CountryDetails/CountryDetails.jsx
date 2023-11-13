@@ -25,11 +25,11 @@ const CountryDetails = () => {
     fetchCountryData();
   }, [countryName]);
 
-  if (loading) {
-    return;
-  }
-  const info = Object.values(countryData.currencies);
-  console.log(info);
+  //   if (loading) {
+  //     return;
+  //   }
+  //   const info = Object.values(countryData.currencies);
+  //   console.log(info);
 
   return (
     <div className="my-container py-16">

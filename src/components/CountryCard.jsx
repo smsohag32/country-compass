@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const CountryCard = ({ country }) => {
   return (
-    <div className="w-full flex flex-col  shadow-md hover:shadow-2xl">
+    <div className="w-full flex flex-col  shadow-md hover:shadow-2xl transition-all duration-300 hover:scale-y-105">
       <div className="w-full bg-blue-100">
         <img className="w-full h-48" src={country?.flags?.png} alt="" />
       </div>
@@ -11,15 +11,13 @@ const CountryCard = ({ country }) => {
           {country?.name?.common}
         </h4>
         <p>
-          Region:{" "}
+          Region:
           <span className="text-lg secondary-text">{country?.region}</span>
         </p>
         <p>Capital: {country?.capital}</p>
 
         <div className="mt-2">
           <p className="text-lg font-semibold">Currencies:</p>
-
-          {/* currency name and symbol */}
           <ul>
             {country?.currencies &&
               Object.keys(country.currencies).map((currencyCode) => {
