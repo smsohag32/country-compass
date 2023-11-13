@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import CountryCard from "../../components/CountryCard";
 import Spinner from "../../components/Spinner";
 
-const PopularCountries = () => {
+const SearchCountries = () => {
   const [populatedCountriesData, setPopulatedCountriesData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchText, setSearchText] = useState("");
@@ -55,4 +55,4 @@ const PopularCountries = () => {
   );
 };
 
-export default PopularCountries;
+export default SearchCountries;

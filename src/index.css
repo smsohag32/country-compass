@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* google font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600;700;800;900&display=swap');
+
 
 body, html {
   background-color: #ffffff;
   color: black;
   font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .primary-text{
@@ -19,7 +23,7 @@ body, html {
 
 
 .my-container{
-  @apply max-w-7xl w-full px-5 md:px-0 mx-auto
+  @apply max-w-7xl w-full px-8 md:px-0 mx-auto
 }
 
 .active-link{
@@ -32,6 +36,9 @@ body, html {
 
 .primary-btn{
   @apply bg-[#015cb5] text-white font-semibold text-lg px-3 py-1 rounded-sm
+}
+.secondary-btn{
+  @apply bg-[#015cb5] text-white font-semibold text-lg px-3 py-2 rounded-sm
 }
 
 

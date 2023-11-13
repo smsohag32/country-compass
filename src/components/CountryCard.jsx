@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
 const CountryCard = ({ country }) => {
@@ -10,6 +11,10 @@ const CountryCard = ({ country }) => {
         <h4 className="block font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
           {country?.name?.common}
         </h4>
+        <p>
+          Region:{" "}
+          <span className="text-lg secondary-text">{country?.region}</span>
+        </p>
         <p>Capital: {country?.capital}</p>
 
         <div className="mt-2">
@@ -28,8 +33,9 @@ const CountryCard = ({ country }) => {
               })}
           </ul>
         </div>
-        <p className="block text-lg mt-3 primary-text">
-          Population: {country?.population}
+        <p className="block text-lg mt-3">
+          Population:
+          <span className="primary-text">{country?.population}</span>
         </p>
       </div>
       <div className="mt-auto p-6 flex justify-end">

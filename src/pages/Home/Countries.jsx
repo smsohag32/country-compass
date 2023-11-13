@@ -1,15 +1,24 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import CountryCard from "../../components/CountryCard";
 import Spinner from "../../components/Spinner";
 import "../../Styles/tabsStyle.css";
+
+const panelItems = [
+  { title: "All" },
+  { title: "Africa" },
+  { title: "Asia" },
+  { title: "Europe" },
+  { title: "Oceania" },
+  { title: "Americas" },
+];
+
 const Countries = () => {
   const [countriesData, setCountriesData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [isAll, setIsAll] = useState(false);
-  //   tabs
-  const [activeTab, setActive] = useState(0);
+
   useEffect(() => {
     setLoading(true);
     fetch(`https://restcountries.com/v3.1/all`)
@@ -57,74 +66,19 @@ const Countries = () => {
               <Tab onClick={() => handleRegion("Americas")}>Americas</Tab>
             </TabList>
 
-            {/* all  */}
-            <TabPanel>
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {countriesData?.length ? (
-                  countriesData.map((country, index) => (
-                    <CountryCard key={index} country={country} />
-                  ))
-                ) : (
-                  <Spinner />
-                )}
-              </div>
-            </TabPanel>
-
-            <TabPanel>
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {countriesData?.length ? (
-                  countriesData.map((country, index) => (
-                    <CountryCard key={index} country={country} />
-                  ))
-                ) : (
-                  <Spinner />
-                )}
-              </div>
-            </TabPanel>
-            <TabPanel>
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {countriesData?.length ? (
-                  countriesData.map((country, index) => (
-                    <CountryCard key={index} country={country} />
-                  ))
-                ) : (
-                  <Spinner />
-                )}
-              </div>
-            </TabPanel>
-            <TabPanel>
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {countriesData?.length ? (
-                  countriesData.map((country, index) => (
-                    <CountryCard key={index} country={country} />
-                  ))
-                ) : (
-                  <Spinner />
-                )}
-              </div>
-            </TabPanel>
-            <TabPanel>
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {countriesData?.length ? (
-                  countriesData.map((country, index) => (
-                    <CountryCard key={index} country={country} />
-                  ))
-                ) : (
-                  <Spinner />
-                )}
-              </div>
-            </TabPanel>
-            <TabPanel>
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {countriesData?.length ? (
-                  countriesData.map((country, index) => (
-                    <CountryCard key={index} country={country} />
-                  ))
-                ) : (
-                  <Spinner />
-                )}
-              </div>
-            </TabPanel>
+            {panelItems.map((item) => (
+              <TabPanel key={item}>
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                  {countriesData?.length ? (
+                    countriesData.map((country, index) => (
+                      <CountryCard key={index} country={country} />
+                    ))
+                  ) : (
+                    <Spinner />
+                  )}
+                </div>
+              </TabPanel>
+            ))}
           </Tabs>
         }
       </div>

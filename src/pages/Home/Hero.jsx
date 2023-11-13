@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import world from "../../assets/world.png";
 const Hero = () => {
   return (
-    <div className="min-h-[calc(100vh-80px)] bg-gradient-to-tr from-white via-blue-500 to-blue-900 flex items-center">
-      <div className="my-container items-center flex flex-col-reverse md:flex-row">
+    <div className="min-h-[calc(100vh-80px)] py-24 md:py-0 bg-gradient-to-tr from-white via-blue-500 to-blue-900 flex items-center">
+      <div className="my-container items-center flex gap-5 flex-col-reverse md:flex-row">
         <div className="w-full flex items-center justify-center">
           <img src={world} alt="world" className="object-cover" />
         </div>
