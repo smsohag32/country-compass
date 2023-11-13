@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import Spinner from "../../components/Spinner";
 
@@ -32,7 +32,7 @@ const AsianCountries = () => {
                 className="bg-white hover:border-blue-100 hover:scale-y-105 transition-all duration-300 border border-white py-10 px-6 rounded flex flex-col items-center justify-center shadow-md"
               >
                 <h3 className="text-xl font-semibold mb-4">
-                  {country.name.common}
+                  {country?.name.common}
                 </h3>
                 <p className="text-gray-700">Capital: {country?.capital}</p>
                 <p className="text-gray-700">

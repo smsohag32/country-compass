@@ -1,6 +1,7 @@
 import AsianCountries from "./AsianCountries";
 import Countries from "./Countries";
 import Hero from "./Hero";
+import TravelTips from "./TravelTips";
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
       <Hero />
       <Countries />
       <AsianCountries />
+      <TravelTips />
     </div>
   );
 };
